@@ -1,0 +1,53 @@
+# Maintainer: shamhunter <nkuzhangshn@gmail.com>
+pkgname=picgo-appimage-beta
+pkgver=2.3.0-beta.3
+pkgrel=1
+
+pkgdesc="A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder"
+arch=('x86_64')
+url="https://molunerfinn.com/PicGo/"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+    "https://github.com/Molunerfinn/PicGo/releases/download/v${pkgver}/PicGo-${pkgver}.AppImage"
+    "picgo.png"
+    "picgo.desktop"
+)
+noextract=("PicGo-${pkgver}.Appimage")
+md5sums=()
+sha512sums=(
+    '2vfkkY4Uv1nbhkEREXFN/mnBUSKNnYDrEpl1+0URaJMxXzmq0WQTF/kFDs94ELPySbeApHdQrWTBfT1OU31KCQ=='
+)
+validpgpkeys=()
+
+prepare() {
+	cd "$pkgname-$pkgver"
+	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
+}
+
+build() {
+	cd "$pkgname-$pkgver"
+	./configure --prefix=/usr
+	make
+}
+
+check() {
+	cd "$pkgname-$pkgver"
+	make -k check
+}
+
+package() {
+	cd "$pkgname-$pkgver"
+	make DESTDIR="$pkgdir/" install
+}
