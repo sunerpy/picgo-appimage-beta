@@ -2,7 +2,7 @@
 pkgname=picgo-appimage-beta
 pkgver=2.3.0
 _betaver=beta.3
-pkgrel=1
+pkgrel=3
 
 pkgdesc="A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder"
 arch=('x86_64')
