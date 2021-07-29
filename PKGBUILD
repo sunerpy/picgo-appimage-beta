@@ -1,4 +1,4 @@
-# Maintainer: shamhunter <nkuzhangshn@gmail.com>
+# Maintainer: sunerpy <nkuzhangshn@gmail.com>
 pkgname=picgo-appimage-beta
 pkgver=2.3.0
 _betaver=beta.3
